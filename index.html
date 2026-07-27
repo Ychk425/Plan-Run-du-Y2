@@ -2378,7 +2378,7 @@ function renderDash(){const el=document.getElementById('dash-contenu');
 
   
   <!-- 10. Chaussures -->
-  <div class="kpi"><div class="kpi-t">🥁 Rotation chaussures</div><div class="kpi-r">Rotation conseillée : récup/easy → Clifton & Gel Pulse (rare), longues → Novablast, qualité → Magic Speed, trail → Cascadia. Chaque séance du plan porte sa paire conseillée.</div>${shoes}</div>
+  <div class="kpi"><div class="kpi-t">🥁 Rotation chaussures</div><div class="kpi-r">Rotation conseillée : récup/easy & sortie longue → Cloudmonster Hyper (route), qualité (seuil/test/côtes) → GRVL 3, trail modéré → Trabuco 13, trail long/D+ → Ultra Glide 3. Chaque séance du plan porte sa paire conseillée.</div>${shoes}</div>
 
   </div></section>
   <p class="note-foot">Dashboard alimenté par ta vraie donnée Strava · Mis à jour à chaque séance logée</p>`;
@@ -2450,7 +2450,7 @@ const CK_SECS={sapins:[
   {id:'equip',ico:'🎒',title:'Équipement',items:[
     {id:'dossard',label:'Dossard récupéré',note:'À retirer sur place le matin dès 7h30'},
     {id:'gilet',label:'Gilet HDV5 préparé',note:'Flasques 2×500ml · sifflet · couverture de survie obligatoire'},
-    {id:'cascadia',label:'Cascadia 19 vérifiées',note:'Lacets · semelles · pas de nouveauté le jour J'},
+    {id:'cascadia',label:'ASICS Trabuco 13 vérifiées',note:'Lacets · semelles · pas de nouveauté le jour J'},
     {id:'tenue',label:'Tenue de course posée',note:'Short · t-shirt technique · casquette · crème solaire'},
     {id:'garmin',label:'Garmin chargé + contact urgence',note:'Fenix 6 Pro · ceinture cardiaque Decathlon chargée'}
   ]},
@@ -2510,7 +2510,7 @@ const CK_SECS={sapins:[
     {id:'frontale1',label:'Frontale principale chargée',note:'Obligatoire · ≥ 200 lumens · batterie 100%'},
     {id:'frontale2',label:'Frontale de secours',note:'Obligatoire · vérification batterie indépendante'},
     {id:'gilet',label:'Gilet trail nuit complet',note:'Flasques · sifflet · couverture survie · trousse secours'},
-    {id:'cascadia',label:'Cascadia 19 (trail technique)',note:'Km 0-27 inconnu · trail technique nocturne'},
+    {id:'cascadia',label:'Salomon Ultra Glide 3 (trail technique)',note:'Km 0-27 inconnu · trail technique nocturne'},
     {id:'tenue_nuit',label:'Tenue nuit (0-5°C au départ)',note:'Départ 23h à 757m · manches longues + coupe-vent + gants'}
   ]},
   {id:'nutrition',ico:'⚡',title:'Nutrition (5h30–7h)',items:[
@@ -2657,7 +2657,7 @@ function ouvrirSemaine(num){const s=SEMAINES.find(x=>x.num===num);const ph=PHASE
     const _today=new Date();_today.setHours(0,0,0,0);
     const loggable=!isDone&&!isSkipped&&se.date&&new Date(se.date+'T00:00:00')<=_today;
     const tags=[stChip(isSkipped?'skipped':r.statut),`<span class="seance-tag">${se.type}</span>`,catBadge(se.cat),`<span class="rpe-pill"><span class="rpe-dot" style="background:${rpeColor(se.rpe)}"></span>RPE ${se.rpe}</span>`];
-    if(se.chaussure)tags.push(`<span class="seance-shoe">👟 ${se.chaussure.replace("ASICS ","").replace("HOKA ","").replace("Brooks ","")}</span>`);
+    if(se.chaussure)tags.push(`<span class="seance-shoe">👟 ${se.chaussure}</span>`);
     if(se.fit)tags.push('<span class="seance-fit">⌚ .fit</span>');
     if(se.opt)tags.push('<span class="seance-tag tag-opt">Optionnelle</span>');
     if(isSkipped&&r.reason)tags.push(`<span class="seance-tag" style="color:#92400e;background:#fef9c3">⏭ ${r.reason}</span>`);
@@ -3159,10 +3159,10 @@ function _cReply(txt){
       }}catch(e){}
     return 'Ouvre l\'onglet Séances pour actualiser la météo.';
   }
-  if(/chaussure|shoe|clifton|novablast|cascadia|magic speed/.test(t)){
+  if(/chaussure|shoe|cloudmonster|grvl|trabuco|ultra glide/.test(t)){
     const g=typeof GEAR!=='undefined'?GEAR:[];
     if(!g.length)return 'Données chaussures non disponibles.';
-    return `**Parc chaussures** 👟\n\n`+g.map(x=>`${x.km>1000?'⚠️':x.km>700?'🟡':'🟢'} **${x.marque} ${x.modele}** — ${x.km} km`).join('\n')+`\n\n• Clifton (1103km) : décrassages courts seulement\n• Magic Speed : AM/qualité uniquement\n• Cascadia : trail\n• Novablast J/V : route training`;
+    return `**Parc chaussures** 👟\n\n`+g.map(x=>`${x.km>(x.vie||700)?'⚠️':x.km>(x.vie||700)*0.85?'🟡':'🟢'} **${x.marque} ${x.modele}** (${x.rotation||''}) — ${x.km}/${x.vie||700} km`).join('\n')+`\n\n• Cloudmonster Hyper : footings, endurance, sortie longue, course Semi de Lyon\n• GRVL 3 : seuil, test, allure semi, côtes\n• Trabuco 13 : trail modéré, Trail des Sapins\n• Ultra Glide 3 : trail long / D+ élevé, SaintExpress`;
   }
   if(/allure|vitesse|pace|5:20|5:40/.test(t))
     return `**Allures cibles 2026**\n\n• EF Z2 : 5:50–6:25/km (FC<144)\n• AS semi : **4:58-5:07/km** → 1h44-1h48 Lyon\n• Seuil : 4:40–4:55/km\n• Trail montée : 9:00–10:00/km\n\nProchain recalage : test 10 km de la S31.`;
