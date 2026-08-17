@@ -2425,7 +2425,47 @@ function rwOpen(id){rwCur=REWINDS.find(x=>x.id===id);if(!rwCur)return;rwIdx=0;do
   try{localStorage.setItem('rw_seen',id);}catch(e){}}
 function rwNext(){if(!rwCur)return;if(rwIdx<rwCur.slides.length-1){rwIdx++;rwRender();}else rwClose();}
 function rwClose(){const o=document.getElementById('rwoverlay');if(o)o.classList.remove('on');document.body.style.overflow='';rwCur=null;}
-function rwAuto(){const last=REWINDS[REWINDS.length-1];if(!last)return;const d=new Date();if(d.getDay()!==1)return;/* 1 = lundi */const wk=isoWeek(d)+'-'+d.getFullYear();try{if(localStorage.getItem('rw_mon')===wk)return;localStorage.setItem('rw_mon',wk);}catch(e){}setTimeout(()=>rwOpen(last.id),900);}
+
+/* ---- Rewind hebdo DYNAMIQUE : recalculé depuis SEANCES_BY_WEEK a chaque ouverture,
+   au lieu du tableau REWINDS fige (garde pour compat mais plus utilise par defaut). ---- */
+function _parseNumFC(str){if(!str)return 0;const m=String(str).match(/[\d.,]+/);if(!m)return 0;return parseFloat(m[0].replace(',','.'))||0;}
+function _weekSessionsFor(wk){return (typeof SEANCES_BY_WEEK!=='undefined'&&SEANCES_BY_WEEK[wk])?SEANCES_BY_WEEK[wk]:[];}
+function _buildWeeklyRewindSlides(wk){
+  const sess=_weekSessionsFor(wk);
+  if(!sess.length)return null;
+  const planned=sess.filter(s=>s.cat!=='bonus');
+  const bonus=sess.filter(s=>s.cat==='bonus');
+  const done=sess.filter(s=>s.realise&&(s.realise.statut==='fait'||s.realise.statut==='partiel'));
+  let totalKm=0,totalDplus=0;const fcVals=[];
+  done.forEach(s=>{const r=s.realise||{};if(r.km)totalKm+=r.km;
+    const dp=(s.metriques&&s.metriques['D+'])?_parseNumFC(s.metriques['D+']):0;totalDplus+=dp;
+    if(r.fc_moy)fcVals.push(r.fc_moy);});
+  totalKm=Math.round(totalKm*10)/10;totalDplus=Math.round(totalDplus);
+  const avgFc=fcVals.length?Math.round(fcVals.reduce((a,b)=>a+b,0)/fcVals.length):null;
+  let notable=null,notableDp=-1;
+  done.forEach(s=>{const dp=(s.metriques&&s.metriques['D+'])?_parseNumFC(s.metriques['D+']):0;if(dp>notableDp){notableDp=dp;notable=s;}});
+  if((!notable||notableDp<=0)&&done.length)notable=done.reduce((a,b)=>((b.realise&&b.realise.km)||0)>((a.realise&&a.realise.km)||0)?b:a);
+  const plannedDoneCount=planned.filter(s=>s.realise&&(s.realise.statut==='fait'||s.realise.statut==='partiel')).length;
+  const dates=sess.map(s=>s.date).filter(Boolean).sort();
+  const dRange=dates.length?new Date(dates[0]+'T12:00:00').toLocaleDateString('fr',{day:'2-digit',month:'short'})+' \u2192 '+new Date(dates[dates.length-1]+'T12:00:00').toLocaleDateString('fr',{day:'2-digit',month:'short'}):'';
+  const phase=(typeof PHASES!=='undefined')?PHASES.find(p=>{const m=(p.sem||'').match(/S(\d+)(?:\s*\u2013\s*S(\d+))?/);if(!m)return false;const a=+m[1],b=m[2]?+m[2]:a;return wk>=a&&wk<=b;}):null;
+  const nextTitles=_weekSessionsFor(wk+1).filter(s=>s.cat!=='bonus').map(s=>s.titre).slice(0,3);
+
+  const slides=[];
+  slides.push({bg:"linear-gradient(160deg,#0f172a,#1e3a5f)",kicker:"BILAN DE SEMAINE",big:"S"+wk,txt:(dRange?dRange+'<br>':'')+"Tape pour avancer."});
+  slides.push({bg:"linear-gradient(160deg,#065f46,#022c22)",kicker:"LE VOLUME",big:totalKm+" km",txt:(totalDplus>0?totalDplus+" m D+ cette semaine.":"Semaine loguée.")});
+  slides.push({bg:"linear-gradient(160deg,#581c87,#1e1b4b)",kicker:"LES SÉANCES",big:plannedDoneCount+"/"+planned.length,txt:"séances du plan réalisées"+(bonus.length?' · +'+bonus.length+' bonus':'')+"."});
+  if(notable){const r=notable.realise||{};const fcTxt=r.fc_moy?(' · FC '+r.fc_moy+(r.fc_max?'/'+r.fc_max:'')+' bpm'):'';
+    slides.push({bg:"linear-gradient(160deg,#7c2d12,#1c0a00)",kicker:"LE TEMPS FORT",big:(r.km||'?')+" km",txt:"<strong>"+notable.titre+"</strong><br>"+(notableDp>0?notableDp+' m D+':'')+fcTxt});}
+  if(avgFc)slides.push({bg:"linear-gradient(160deg,#1e3a8a,#0c1c3d)",kicker:"FC MOYENNE DE LA SEMAINE",big:avgFc+" bpm",txt:"sur "+fcVals.length+" séance"+(fcVals.length>1?'s':'')+" avec données cardiaques."});
+  if(phase)slides.push({bg:"linear-gradient(160deg,#134e4a,#042f2e)",kicker:"PHASE ACTUELLE",big:phase.nom,txt:phase.role||''});
+  if(nextTitles.length)slides.push({bg:"linear-gradient(160deg,#14532d,#052e16)",kicker:"LA SUITE \u2014 S"+(wk+1),big:"\u27a1\ufe0f",txt:nextTitles.join('<br>')});
+  return {id:"dyn-S"+wk,titre:"Semaine S"+wk,sous:dRange,slides:slides};
+}
+function rwOpenWeek(wk){const deck=_buildWeeklyRewindSlides(wk);if(!deck||!deck.slides.length)return;
+  rwCur=deck;rwIdx=0;document.getElementById('rwoverlay').classList.add('on');document.body.style.overflow='hidden';rwRender();}
+function rwAuto(){const d=new Date();if(d.getDay()!==1)return;/* 1 = lundi */const wk=isoWeek(d)+'-'+d.getFullYear();try{if(localStorage.getItem('rw_mon')===wk)return;localStorage.setItem('rw_mon',wk);}catch(e){}
+  const cw=(typeof _curWeek==='function')?_curWeek():26;setTimeout(()=>rwOpenWeek(cw-1),900);}
 
 function dosProfilSVG(D,ac){
   const pts=D.profil_pts; if(!pts||!pts.length)return '';
@@ -2645,7 +2685,7 @@ function ouvrirSemaine(num){const s=SEMAINES.find(x=>x.num===num);const ph=PHASE
     contenu.innerHTML=`<div class="sw-hero"><span class="sw-tag" style="background:${COUL[s.phase]}22;color:${COUL[s.phase]}">${ph.nom}</span><h2 class="sw-titre">Semaine ${s.num} — ${s.theme}</h2><p class="sw-sous">Semaine terminée · récupération post-Circaète</p></div>
       <div class="sw-corps"><div class="callout callout-obj">${s.objectif}</div>
       <div class="sw-section">Réalisé sur la semaine — ${S24R.runs.length} sorties · ${S24R.km} km</div><div class="seance-liste">${runs}</div>
-      <div style="text-align:center"><button class="rw-btn" onclick="rwOpen('S24')">🎬 Lance le Rewind de ta semaine</button></div><div class="sw-section">Bilan du coach</div><div class="rev-coach">${S24R.revue}</div>
+      <div style="text-align:center"><button class="rw-btn" onclick="rwOpenWeek(24)">🎬 Lance le Rewind de ta semaine</button></div><div class="sw-section">Bilan du coach</div><div class="rev-coach">${S24R.revue}</div>
       <div class="sw-section">🎯 Cap sur la S25</div><div class="callout callout-cap">${S25_CAP}</div>
       <p class="note-foot" style="margin-top:24px">La reprise structurée démarre maintenant, en S25.</p></div>`;ouvrir();return;}
   const seances=SEANCES_BY_WEEK[num]||[];const fait=seances.filter(x=>x.realise&&(x.realise.statut==='fait'||x.realise.statut==='partiel')).length;const realKm=seances.reduce((a,x)=>a+((x.realise&&x.realise.km)||0),0);
