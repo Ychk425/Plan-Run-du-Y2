@@ -2097,6 +2097,7 @@ const DASH_GROUPS=[
   {id:'saison',ic:'📊',t:'Saison en chiffres'},
   {id:'charge',ic:'❤️',t:'Charge & physiologie'},
   {id:'fc',ic:'💓',t:'FC hebdomadaire'},
+  {id:'sommeil',ic:'😴',t:'Sommeil & forme'},
   {id:'perf',ic:'🏆',t:'Performances & objectifs'},
   {id:'profil',ic:'⛰️',t:'Profil & matériel'},
 ];
@@ -2333,6 +2334,48 @@ function renderDash(){const el=document.getElementById('dash-contenu');
     <div class="kpi-t">🎯 Répartition de tes séances par zone FC</div>
     <div class="kpi-r">Sur quelle zone tournent réellement tes séances loguées — le vrai test de la polarisation 80/20 recommandée par la littérature scientifique (faible intensité prédominante, peu de zone grise).</div>
     <div class="zfc">${zoneBars}</div>
+  </div>
+
+  </div></section>`;
+  })()+dgrpHead('sommeil','😴','Sommeil & forme')+(function(){
+    // Collecte chronologique des entrées sommeil/RPE réveil déclarées sur les séances
+    const entries=[];
+    Object.keys(SEANCES_BY_WEEK).forEach(wk=>{
+      SEANCES_BY_WEEK[wk].forEach(s=>{
+        const r=s.realise;
+        if(r&&(r.sommeil_h!=null||r.rpe_reveil!=null)){
+          entries.push({date:s.date,sommeil_h:r.sommeil_h!=null?r.sommeil_h:null,rpe_reveil:r.rpe_reveil!=null?r.rpe_reveil:null,titre:s.titre});
+        }
+      });
+    });
+    entries.sort((a,b)=>(a.date||'').localeCompare(b.date||''));
+    const sommeilVals=entries.map(e=>e.sommeil_h);
+    const rpeVals=entries.map(e=>e.rpe_reveil);
+    const labels=entries.map(e=>{const d=e.date?new Date(e.date+'T12:00:00'):null;return d?d.toLocaleDateString('fr',{day:'2-digit',month:'2-digit'}):'';});
+    const knownSommeil=sommeilVals.filter(v=>v!=null);
+    const knownRpe=rpeVals.filter(v=>v!=null);
+    const avgSommeil=knownSommeil.length?Math.round(knownSommeil.reduce((a,b)=>a+b,0)/knownSommeil.length*10)/10:null;
+    const avgRpe=knownRpe.length?Math.round(knownRpe.reduce((a,b)=>a+b,0)/knownRpe.length*10)/10:null;
+    if(!entries.length){
+      return `
+  <div class="kpi">
+    <div class="kpi-t">😴 Sommeil & forme au réveil</div>
+    <div class="kpi-r">Pas encore de donnée. Aucune API montre connectée ici (Strava ne remonte pas le sommeil) — dis simplement tes heures de sommeil approximatives et/ou ton RPE au réveil (1-10) quand tu me parles d'une séance, et ce module se remplira automatiquement.</div>
+  </div>
+  </div></section>`;
+    }
+    return `
+  <!-- Sommeil & forme -->
+  <div class="kpi">
+    <div class="kpi-t">😴 Sommeil & forme au réveil</div>
+    <div class="kpi-r">Déclaratif (pas de montre connectée) — heures de sommeil approximatives et RPE au réveil (1-10), rapportés au fil des séances. Utile pour croiser avec les épisodes de FC élevée ou de gêne musculaire.</div>
+    <div class="dash-stats" style="margin-bottom:14px">
+      <div class="dstat" style="--accent:#8b5cf6"><div class="dstat-l">Sommeil moyen</div><div class="dstat-v">${avgSommeil!=null?avgSommeil:'—'}</div><div class="dstat-s">heures, sur ${knownSommeil.length} nuit${knownSommeil.length>1?'s':''} déclarée${knownSommeil.length>1?'s':''}</div></div>
+      <div class="dstat" style="--accent:#f59e0b"><div class="dstat-l">RPE réveil moyen</div><div class="dstat-v">${avgRpe!=null?avgRpe:'—'}</div><div class="dstat-s">sur 10, ${knownRpe.length} matin${knownRpe.length>1?'s':''} déclaré${knownRpe.length>1?'s':''}</div></div>
+    </div>
+    ${knownSommeil.length?chartLine(sommeilVals,{color:'#8b5cf6',labels:labels,fmtY:v=>v+'h',annotate:true,h:130}):''}
+    ${knownRpe.length?chartLine(rpeVals,{color:'#f59e0b',labels:labels,fmtY:v=>v+'/10',annotate:true,h:130}):''}
+    <div class="rev-coach" style="margin-top:14px"><strong>Comment lire ce module :</strong> un RPE réveil élevé ou un sommeil court la veille d'une séance à FC anormalement haute est un indice de plus pour distinguer fatigue passagère et signal plus sérieux (comme la gêne aux ischios du 6/09).</div>
   </div>
 
   </div></section>`;
