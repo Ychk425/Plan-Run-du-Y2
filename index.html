@@ -2887,7 +2887,7 @@ const _CK_HELP={
     <div class="ch-rule"><div class="ch-dot" style="background:#0d9488"></div><div><strong>CTL — Fitness (teal)</strong> : Charge chronique sur 42 jours. Représente ta forme physique accumulée. Monte lentement avec l'entraînement, descend lentement avec le repos.</div></div>
     <div class="ch-rule"><div class="ch-dot" style="background:#f59e0b"></div><div><strong>ATL — Fatigue (orange tirets)</strong> : Charge aiguë sur 7 jours. Réagit vite aux variations de charge. Monte rapidement après une grosse semaine, descend vite avec le repos.</div></div>
     <div class="ch-rule"><div class="ch-dot" style="background:#16a34a"></div><div><strong>TSB — Forme (barres)</strong> : CTL − ATL. Positif (vert) = tu es frais, reposé. Négatif (rouge) = tu accumules de la fatigue.</div></div>
-    <div class="ch-tip">💡 <strong>Comment lire ce graphe pour Nice :</strong> La CTL doit monter progressivement jusqu'à octobre (pic prévu ~65-70), puis la TSB doit remonter en positif grâce au tapering J-21/J-14/J-7. Le jour de Nice, visée : CTL élevée + TSB entre +5 et +20 = pic de forme.</div>`},
+    <div class="ch-tip">💡 <strong>Comment lire ce graphe pour SaintExpress (45 km, 28/11) :</strong> La CTL doit monter progressivement pendant le bloc trail (S42-S47), avec un allègement avant la STU du 1/11, puis la TSB doit remonter en positif grâce à l'affûtage des dernières semaines. Le jour de la SaintExpress, visée : CTL élevée + TSB entre +5 et +20 = pic de forme.</div>`},
   vol:{t:'Volume hebdomadaire',c:'#f59e0b',body:`<p>Kilomètres courus chaque semaine (barres colorées) comparés au volume planifié (barres grises en arrière-plan).</p>
     <div class="ch-rule"><div class="ch-dot" style="background:#f59e0b"></div><div><strong>Barre au-dessus du gris</strong> → tu as sur-performé. Vérifie que ce n'était pas au détriment de la qualité des séances.</div></div>
     <div class="ch-rule"><div class="ch-dot" style="background:#94a3b8"></div><div><strong>Barre en dessous du gris</strong> → semaine incomplète. Normal pendant les allègements ou après une course.</div></div>
@@ -2895,7 +2895,7 @@ const _CK_HELP={
   re:{t:'Relative Effort (RE)',c:'#f59e0b',body:`<p>Score de charge calculé par Strava à partir de la fréquence cardiaque. Il intègre à la fois la durée et l'intensité de chaque sortie.</p>
     <div class="ch-rule"><div class="ch-dot" style="background:#16a34a"></div><div><strong>EF 10 km facile</strong> ≈ 40–70 RE</div></div>
     <div class="ch-rule"><div class="ch-dot" style="background:#f59e0b"></div><div><strong>Sortie longue 16 km</strong> ≈ 150–180 RE</div></div>
-    <div class="ch-rule"><div class="ch-dot" style="background:#ef4444"></div><div><strong>Circaète 30 km trail</strong> ≈ 696 RE</div></div>
+    <div class="ch-rule"><div class="ch-dot" style="background:#ef4444"></div><div><strong>Trail de 30 km à fort D+</strong> ≈ 600-700 RE</div></div>
     <div class="ch-tip">💡 Glisse le doigt sur le graphe pour voir la valeur semaine par semaine. La tendance sur 8 semaines est plus parlante que la valeur isolée.</div>`},
   acwr:{t:'ACWR — Risque de blessure',c:'#f59e0b',body:`<p>Ratio Charge Aiguë / Charge Chronique (Acute:Chronic Workload Ratio). Compare la charge des 7 derniers jours à la moyenne des 28 derniers jours.</p>
     <div class="ch-rule"><div class="ch-dot" style="background:#0d9488"></div><div><strong>ACWR &lt; 0.8 (bleu)</strong> → Sous-entraîné. Semaine légère ou récup prolongée. Faible risque mais perte de forme.</div></div>
@@ -2907,13 +2907,13 @@ const _CK_HELP={
     <div class="ch-rule"><div class="ch-dot" style="background:#0d9488"></div><div><strong>Semaine route pure</strong> → D+ ≈ 30–80 m (variation naturelle du terrain)</div></div>
     <div class="ch-rule"><div class="ch-dot" style="background:#0d9488"></div><div><strong>Semaine trail légère</strong> → D+ 200–500 m</div></div>
     <div class="ch-rule"><div class="ch-dot" style="background:#f59e0b"></div><div><strong>Semaine spécifique trail</strong> → D+ 600–1000 m</div></div>
-    <div class="ch-tip">💡 Pour la Déraille (+901m) et SaintExpress, le D+ hebdo doit idéalement atteindre 500–800m dans les 4 semaines précédentes. Ce graphe permet de vérifier que la spécificité trail est bien intégrée.</div>`},
+    <div class="ch-tip">💡 Pour la STU (1/11) et la SaintExpress (28/11), le D+ hebdo doit idéalement atteindre 500–800m dans les 4 semaines précédentes. Ce graphe permet de vérifier que la spécificité trail est bien intégrée.</div>`},
   z2:{t:'Z2 pace — Allure EF',c:'#0d9488',body:`<p>Allure moyenne de tes footings faciles semaine par semaine. C'est <strong>l'indicateur fondamental</strong> du développement aérobie.</p>
     <p>La Zone 2 = effort où tu peux tenir une conversation. FC < 144 bpm pour toi.</p>
     <div class="ch-rule"><div class="ch-dot" style="background:#0d9488"></div><div><strong>Courbe descendante</strong> (allure plus rapide) = ta forme aérobie progresse. Tu vas plus vite sans travailler plus fort.</div></div>
     <div class="ch-rule"><div class="ch-dot" style="background:#f59e0b"></div><div><strong>Courbe plate</strong> = stagnation. Normal en période de maintien ou de volume élevé.</div></div>
     <div class="ch-rule"><div class="ch-dot" style="background:#ef4444"></div><div><strong>Courbe montante</strong> = régression. Souvent liée à la fatigue, la chaleur, ou un ACWR > 1.3.</div></div>
-    <div class="ch-tip">💡 Ton objectif saison : passer de 5:56/km à ~5:40/km en Z2 d'ici octobre. Chaque dixième de seconde gagné reflète une adaptation mitochondriale réelle.</div>`},
+    <div class="ch-tip">💡 Repère : à FC égale (140-160 BPM), une allure qui baisse d'une sortie à l'autre = progrès aérobie. Chaque dixième de seconde gagné reflète une adaptation mitochondriale réelle.</div>`},
   dc:{t:'Découplage cardiaque',c:'#0d9488',body:`<p>Mesure l'écart entre ton allure et ta FC sur une sortie longue. Un faible découplage = ton cœur reste stable alors que tu te fatigues.</p>
     <div class="ch-rule"><div class="ch-dot" style="background:#16a34a"></div><div><strong>&lt; 5% (vert)</strong> → Excellent. Ton système aérobie est solide et stable sur la durée.</div></div>
     <div class="ch-rule"><div class="ch-dot" style="background:#f59e0b"></div><div><strong>5–8% (orange)</strong> → Acceptable. Léger décrochage en fin de sortie, souvent dû à la chaleur ou à la fatigue.</div></div>
@@ -2921,21 +2921,21 @@ const _CK_HELP={
     <div class="ch-tip">💡 Ce graphe te dit si tes sorties longues sont vraiment "faciles" ou si ton cœur souffre en fin de sortie sans que tu le ressentes. Un découplage élevé en canicule est normal — c'est pour ça qu'on court avant 8h30.</div>`},
   pace:{t:'Progression allure par type',c:'#16a34a',body:`<p>3 courbes d'allure sur la fenêtre sélectionnée — footings faciles (EF), allure semi (AS) et seuil. Permet de voir si tu progresses sur tous les registres.</p>
     <div class="ch-rule"><div class="ch-dot" style="background:#16a34a"></div><div><strong>EF (vert)</strong> → Allure Z2, footing facile. Doit descendre progressivement toute la saison.</div></div>
-    <div class="ch-rule"><div class="ch-dot" style="background:#0d9488"></div><div><strong>AS (bleu)</strong> → Allure semi cible. Doit converger vers 4:58-5:07/km pour le Semi de Lyon.</div></div>
-    <div class="ch-rule"><div class="ch-dot" style="background:#f59e0b"></div><div><strong>Seuil (orange)</strong> → Allure séance AS ou tempo. Reflète ta capacité lactique.</div></div>
+    <div class="ch-rule"><div class="ch-dot" style="background:#0d9488"></div><div><strong>AS (bleu)</strong> → Allure semi cible. Allure des sorties à FC moyenne 160-174 BPM (tempo / semi).</div></div>
+    <div class="ch-rule"><div class="ch-dot" style="background:#f59e0b"></div><div><strong>Seuil (orange)</strong> → Sorties à FC moyenne ≥ 174 BPM. Reflète ta capacité lactique.</div></div>
     <div class="ch-tip">💡 Glisse le doigt sur le graphe pour voir les 3 valeurs simultanément. L'écart entre EF et seuil = ton amplitude de vitesse. Plus il est grand, meilleur est ton profil de coureur.</div>`},
   fc:{t:'Zones FC — Distribution',c:'#ef4444',body:`<p>Répartition du temps passé dans chaque zone de fréquence cardiaque sur la semaine sélectionnée. Reflète la structure de ton entraînement.</p>
-    <div class="ch-rule"><div class="ch-dot" style="background:#0d9488"></div><div><strong>Z1 Récup (&lt;130 bpm)</strong> → Échauffement, récupération active. Peut être augmenté.</div></div>
-    <div class="ch-rule"><div class="ch-dot" style="background:#16a34a"></div><div><strong>Z2 Endurance (130–148)</strong> → Moteur aérobie. Doit représenter 70–80% du volume total.</div></div>
-    <div class="ch-rule"><div class="ch-dot" style="background:#f59e0b"></div><div><strong>Z3 Seuil (148–163)</strong> → Zone "grise" : trop dur pour récupérer vite, trop facile pour progresser fort. À limiter.</div></div>
-    <div class="ch-rule"><div class="ch-dot" style="background:#f59e0b"></div><div><strong>Z4 Lactique (163–178)</strong> → Séances AM, tempo. 15–20% du volume = optimal.</div></div>
-    <div class="ch-rule"><div class="ch-dot" style="background:#ef4444"></div><div><strong>Z5 Max (&gt;178)</strong> → Fractionné intense. Réservé aux séances très ciblées.</div></div>
+    <div class="ch-rule"><div class="ch-dot" style="background:#0d9488"></div><div><strong>Z1 Récup (&lt;140 BPM)</strong> → Échauffement, récupération active. Peut être augmenté.</div></div>
+    <div class="ch-rule"><div class="ch-dot" style="background:#16a34a"></div><div><strong>Z2 Endurance (140–160)</strong> → Moteur aérobie. Doit représenter 70–80% du volume total.</div></div>
+    <div class="ch-rule"><div class="ch-dot" style="background:#f59e0b"></div><div><strong>Z3 Tempo / semi (160–174)</strong> → Zone "grise" : trop dur pour récupérer vite, trop facile pour progresser fort. À limiter.</div></div>
+    <div class="ch-rule"><div class="ch-dot" style="background:#f59e0b"></div><div><strong>Z4 Seuil (174–184)</strong> → Séances AM, tempo. 15–20% du volume = optimal.</div></div>
+    <div class="ch-rule"><div class="ch-dot" style="background:#ef4444"></div><div><strong>Z5 VO2 / VMA (184–200)</strong> → Fractionné intense. Réservé aux séances très ciblées.</div></div>
     <div class="ch-tip">💡 Distribution idéale (entraînement polarisé) : 75–80% Z1-Z2 + 5% Z3 + 15–20% Z4-Z5. Trop de Z3 = entraînement "moyen partout" = progression lente.</div>`},
-  cad:{t:'Cadence (pas/min)',c:'#6366f1',body:`<p>Nombre de pas par minute. La valeur affichée est en SPM (steps per minute = total des deux pieds). Ta cadence naturelle est d'environ 172–174 spm en route.</p>
-    <div class="ch-rule"><div class="ch-dot" style="background:#16a34a"></div><div><strong>170–180 spm</strong> → Zone optimale. Limite l'impact au sol et réduit le risque de blessures aux genoux et hanches.</div></div>
-    <div class="ch-rule"><div class="ch-dot" style="background:#f59e0b"></div><div><strong>&lt;170 spm</strong> → Foulée trop longue. Augmente les forces d'impact. Surtout visible en fatigue ou en descente trail.</div></div>
-    <div class="ch-rule"><div class="ch-dot" style="background:#6366f1"></div><div><strong>Trail &lt;155 spm</strong> → Normal en montée raide (marche) ou sur terrain très technique.</div></div>
-    <div class="ch-tip">💡 Ta cadence trail (146 spm au Circaète) inclut les passages de marche en montée — c'est tout à fait normal. L'écart route/trail que tu vois dans ce graphe est attendu et sain.</div>`}
+  cad:{t:'Cadence (pas/min)',c:'#6366f1',body:`<p>Nombre de pas par minute. La valeur affichée est en SPM (steps per minute = total des deux pieds). Ta cadence actuelle en footing est d'environ 156 PPM (pas par minute, deux pieds).</p>
+    <div class="ch-rule"><div class="ch-dot" style="background:#16a34a"></div><div><strong>170–180 PPM</strong> → Zone optimale. Limite l'impact au sol et réduit le risque de blessures aux genoux et hanches.</div></div>
+    <div class="ch-rule"><div class="ch-dot" style="background:#f59e0b"></div><div><strong>&lt;170 PPM</strong> → Foulée trop longue. Augmente les forces d'impact. Surtout visible en fatigue ou en descente trail.</div></div>
+    <div class="ch-rule"><div class="ch-dot" style="background:#6366f1"></div><div><strong>Trail &lt;155 PPM</strong> → Normal en montée raide (marche) ou sur terrain très technique.</div></div>
+    <div class="ch-tip">💡 Ta cadence trail inclut les passages de marche en montée — c'est tout à fait normal. L'écart route/trail que tu vois dans ce graphe est attendu et sain.</div>`}
 };
 function _ckCtxBlock(key){
   try{
@@ -3149,56 +3149,78 @@ function _curWeek(){
 
 function _ckRebuild(){
   if(typeof SEANCES_BY_WEEK==='undefined'||typeof _CK==='undefined')return;
-  // Collecter les semaines avec des séances réalisées
-  var weeks=Object.keys(SEANCES_BY_WEEK).map(_weekNumFromKey).filter(function(n){return n>0;}).sort(function(a,b){return a-b;});
-  // Agréger km / RE / D+ / allure / FC / cadence réels par semaine
+  function isRun(s){return s&&(s.sport==='Course à pied'||/^Trail/.test(s.sport||''));}
+  function done(s){var r=s.realise;return r&&(r.statut==='fait'||r.statut==='partiel')&&r.km;}
+  function pSec(a){var m=a&&String(a).match(/(\d+):(\d+)/);return m?(+m[1])*60+(+m[2]):null;}
+  function tMin(t){if(!t)return null;var x=String(t);var h=x.match(/(\d+)\s*h\s*(\d+)?/);if(h)return (+h[1])*60+(+h[2]||0);var m=x.match(/(\d+):(\d+)(?::(\d+))?/);if(m)return m[3]!=null?(+m[1])*60+(+m[2])+(+m[3])/60:(+m[1])+(+m[2])/60;var n=x.match(/(\d+)\s*min/);return n?+n[1]:null;}
+  function dpOf(s){var r=s.realise;if(r.dplus!=null)return +r.dplus;var m=s.metriques&&s.metriques['D+']&&String(s.metriques['D+']).match(/(\d+)/);if(m)return +m[1];var d=r.commentaire&&r.commentaire.match(/D\+\s*(\d+)/);return d?+d[1]:0;}
+  function cadOf(s){var r=s.realise;if(r.cadence!=null)return +r.cadence;var m=r.commentaire&&r.commentaire.match(/cadence[^0-9]{0,40}(\d{2,3})/i);return m?+m[1]:null;}
+  var all=[];
+  Object.keys(SEANCES_BY_WEEK).forEach(function(k){var wn=_weekNumFromKey(k);(SEANCES_BY_WEEK[k]||[]).forEach(function(s){if(isRun(s)&&done(s))all.push({wn:wn,s:s});});});
+  if(!all.length)return;
+  var cur=_curWeek();
+  var firstW=Math.min.apply(null,all.map(function(x){return x.wn;}));
+  var lastW=Math.min(cur,Math.max.apply(null,all.map(function(x){return x.wn;})));
   var agg={};
-  weeks.forEach(function(wn){
-    var arr=SEANCES_BY_WEEK[String(wn)]||SEANCES_BY_WEEK[wn]||[];
-    var km=0,re=0,dplus=0,fcSum=0,fcN=0,cadSum=0,cadN=0,paceSum=0,paceN=0,hasReal=false;
-    arr.forEach(function(s){
-      var r=s.realise;
-      if(r&&(r.statut==='fait'||r.statut==='partiel')&&r.km){
-        hasReal=true;km+=r.km;re+=_reFromSeance(s);
-        var dm=r.commentaire&&r.commentaire.match(/D\+\s*(\d+)/);if(dm)dplus+=+dm[1];
-        if(r.fc_moy){fcSum+=r.fc_moy;fcN++;}
-        var cm=r.commentaire&&r.commentaire.match(/cadence\s+(\d+)/);if(cm){cadSum+=+cm[1];cadN++;}
-        if(r.allure){var pm=r.allure.match(/(\d+):(\d+)/);if(pm){paceSum+=(+pm[1])*60+(+pm[2]);paceN++;}}
+  for(var wn=firstW;wn<=lastW;wn++){
+    var arr=all.filter(function(x){return x.wn===wn;});
+    var a={km:0,re:0,dplus:0,cad:null,ef:null,am:null,se:null,z2:null,dc:null,fcTime:[0,0,0,0,0]};
+    var cadS=0,cadN=0,ef=[],am=[],se=[],z2=[],dc=[];
+    arr.forEach(function(x){
+      var s=x.s,r=s.realise;
+      a.km+=r.km;a.re+=_reFromSeance(s);a.dplus+=dpOf(s);
+      var cd=cadOf(s);if(cd){cadS+=cd;cadN++;}
+      var ps=pSec(r.allure),fc=r.fc_moy;
+      var isTrail=/^Trail/.test(s.sport||'');
+      if(ps&&fc&&r.km>=4&&!isTrail){
+        if(fc<160)ef.push(ps);else if(fc<174)am.push(ps);else se.push(ps);
+        if(fc>=140&&fc<160)z2.push(ps);
       }
+      if(r.fc_drift_pct!=null)dc.push(+r.fc_drift_pct);
+      var tm=tMin(r.temps);
+      if(fc&&tm){var zi=fc<140?0:fc<160?1:fc<174?2:fc<184?3:4;a.fcTime[zi]+=tm;}
     });
-    if(hasReal)agg[wn]={km:+km.toFixed(1),re:re,dplus:dplus,fc:fcN?Math.round(fcSum/fcN):null,cad:cadN?Math.round(cadSum/cadN):null,pace:paceN?Math.round(paceSum/paceN):null};
-  });
-  var realWeeks=Object.keys(agg).map(Number).sort(function(a,b){return a-b;});
-  if(realWeeks.length<2)return; // pas assez de données, on garde _CK figé
-  // ACWR EMA (CTL 42j / ATL 7j) sur la série RE complète
-  var reSeries=realWeeks.map(function(w){return agg[w].re;});
+    function mean(v){return v.length?Math.round(v.reduce(function(p,q){return p+q;},0)/v.length):null;}
+    a.km=+a.km.toFixed(1);a.cad=cadN?Math.round(cadS/cadN):null;a.ef=mean(ef);a.am=mean(am);a.se=mean(se);a.z2=mean(z2);
+    a.dc=dc.length?+(dc.reduce(function(p,q){return p+q;},0)/dc.length).toFixed(1):null;
+    agg[wn]=a;
+  }
+  var ws0=[];for(var q=firstW;q<=lastW;q++)ws0.push(q);
+  if(ws0.length<2)return;
   var aC=1-Math.exp(-7/42),aA=1-Math.exp(-7/7);
-  var acwrByWeek={},ctl=reSeries[0],atl=reSeries[0];
-  realWeeks.forEach(function(w,i){
-    var v=agg[w].re;
-    if(i>0){ctl=(1-aC)*ctl+aC*v;atl=(1-aA)*atl+aA*v;}
-    acwrByWeek[w]=ctl>0?+((atl/ctl).toFixed(2)):1.0;
-  });
-  // Reconstruire les fenêtres 2/4/8/12 de _CK
-  function lastN(n){return realWeeks.slice(-n);}
-  function wlabels(ws){return ws.map(function(w){return 'S'+w;});}
+  var acwrByWeek={},ctl=agg[ws0[0]].re,atl=agg[ws0[0]].re;
+  ws0.forEach(function(w,i){var v=agg[w].re;if(i>0){ctl=(1-aC)*ctl+aC*v;atl=(1-aA)*atl+aA*v;}acwrByWeek[w]=ctl>0?+((atl/ctl).toFixed(2)):1.0;});
+  function wl(ws){return ws.map(function(w){return 'S'+w;});}
   [2,4,8,12].forEach(function(N){
-    var ws=lastN(N);var lbl=wlabels(ws);
-    if(_CK.VOL)_CK.VOL[N]={w:lbl,p:ws.map(function(){return null;}),a:ws.map(function(w){return agg[w].km;})};
-    if(_CK.RE)_CK.RE[N]={w:lbl,v:ws.map(function(w){return agg[w].re;})};
-    if(_CK.ACWR)_CK.ACWR[N]={w:lbl,v:ws.map(function(w){return acwrByWeek[w];})};
-    if(_CK.DPLUS)_CK.DPLUS[N]={w:lbl,v:ws.map(function(w){return agg[w].dplus;})};
-    if(_CK.FCZ&&agg[ws[ws.length-1]].fc){/* FCZ gardé tel quel, structure complexe */}
-    if(_CK.CAD)_CK.CAD[N]={w:lbl,v:ws.map(function(w){return agg[w].cad;})};
-    if(_CK.PACE)_CK.PACE[N]={w:lbl,v:ws.map(function(w){return agg[w].pace;})};
+    var ws=ws0.slice(-N),lbl=wl(ws);
+    _CK.VOL[N]={w:lbl,p:ws.map(function(){return null;}),a:ws.map(function(w){return agg[w].km;})};
+    _CK.RE[N]={w:lbl,v:ws.map(function(w){return agg[w].re;})};
+    _CK.ACWR[N]={w:lbl,v:ws.map(function(w){return acwrByWeek[w];})};
+    _CK.DPLUS[N]={w:lbl,v:ws.map(function(w){return agg[w].dplus;})};
+    _CK.CAD[N]={w:lbl,v:ws.map(function(w){return agg[w].cad;})};
+    _CK.Z2[N]={w:lbl,v:ws.map(function(w){return agg[w].z2;})};
+    _CK.DC[N]={w:lbl,v:ws.map(function(w){return agg[w].dc;})};
+    _CK.PACE[N]={w:lbl,ef:ws.map(function(w){return agg[w].ef;}),am:ws.map(function(w){return agg[w].am;}),se:ws.map(function(w){return agg[w].se;})};
+    var tot=[0,0,0,0,0];ws.forEach(function(w){agg[w].fcTime.forEach(function(v,i){tot[i]+=v;});});
+    var sum=tot.reduce(function(p,q){return p+q;},0)||1;
+    var zc=['#86efac','#22c55e','#eab308','#f97316','#ef4444'],zn=['Z1','Z2','Z3','Z4','Z5'];
+    _CK.FCZ[N]=tot.map(function(v,i){return [zn[i],zc[i],Math.round(v/sum*100)];});
   });
-  // Mettre à jour ACWR_DATA (valeur de secours) avec la dernière valeur réelle
+  // Dernières sorties (course / trail) pour "Analyse par sortie"
+  var jours=['Dim','Lun','Mar','Mer','Jeu','Ven','Sam'],mois=['janv','févr','mars','avr','mai','juin','juil','août','sept','oct','nov','déc'];
+  var runs=all.filter(function(x){return (x.s.realise.date||x.s.date);}).sort(function(a,b){var da=a.s.realise.date||a.s.date,db=b.s.realise.date||b.s.date;return da<db?1:da>db?-1:0;}).slice(0,6);
+  _CK.RUNS=runs.map(function(x,i){
+    var s=x.s,r=s.realise,ds=r.date||s.date,d=new Date(ds+'T12:00:00'),fc=r.fc_moy||0;
+    var col=fc<140?'#86efac':fc<160?'#22c55e':fc<174?'#eab308':fc<184?'#f97316':'#ef4444';
+    return {id:'s'+x.wn+'-'+s.id,title:s.titre.length>48?s.titre.slice(0,46)+'…':s.titre,date:jours[d.getDay()]+' '+d.getDate()+' '+mois[d.getMonth()],type:col,km:r.km,al:r.allure?String(r.allure).replace(/\s*\/km/,''):'—',re:_reFromSeance(s),fcm:r.fc_moy||'—',fcx:r.fc_max||'—',cad:cadOf(s),dp:dpOf(s),cal:null,hasStreams:false};
+  });
+  // Valeurs de secours de l'ACWR
   if(typeof ACWR_DATA!=='undefined'){
-    var lastW=realWeeks[realWeeks.length-1];
     ACWR_DATA.acwr=acwrByWeek[lastW];
     ACWR_DATA.charge7j=agg[lastW].re;
-    var s28=realWeeks.slice(-4);ACWR_DATA.charge28j=s28.reduce(function(a,w){return a+agg[w].re;},0);
+    ACWR_DATA.charge28j=ws0.slice(-4).reduce(function(a,w){return a+agg[w].re;},0);
   }
+  _CK.STREAMS={};
 }
 function _curWeek(){
   // Semaine du plan basée sur la date réelle. Ancre : 9 mars 2026 = lundi = S11.
@@ -3491,18 +3513,8 @@ const _CK={
   PACE:{2:{w:['S24','S25'],ef:[360,354],am:[320,314],se:[null,288]},4:{w:['S22','S23','S24','S25'],ef:[384,358,360,354],am:[320,315,320,314],se:[295,null,null,288]},8:{w:['S18','S19','S20','S21','S22','S23','S24','S25'],ef:[396,390,387,390,384,358,360,354],am:[316,318,316,315,320,315,320,314],se:[300,298,295,297,295,null,null,288]},12:{w:['S14','S15','S16','S17','S18','S19','S20','S21','S22','S23','S24','S25'],ef:[408,404,400,396,390,387,390,384,380,358,360,354],am:[324,322,320,318,316,318,316,315,320,315,320,314],se:[310,308,305,302,300,298,295,297,295,null,null,288]}},
   FCZ:{2:[['Z1','#16a34a',10],['Z2','#16a34a',58],['Z3','#f59e0b',20],['Z4+','#ef4444',12]],4:[['Z1','#16a34a',11],['Z2','#16a34a',62],['Z3','#f59e0b',17],['Z4+','#ef4444',10]],8:[['Z1','#16a34a',12],['Z2','#16a34a',65],['Z3','#f59e0b',15],['Z4+','#ef4444',8]],12:[['Z1','#16a34a',14],['Z2','#16a34a',68],['Z3','#f59e0b',12],['Z4+','#ef4444',6]]},
   CAD:{2:{w:['S24','S25'],v:[171,172]},4:{w:['S22','S23','S24','S25'],v:[145,172,171,172]},8:{w:['S18','S19','S20','S21','S22','S23','S24','S25'],v:[154,168,146,170,145,172,171,172]},12:{w:['S14','S15','S16','S17','S18','S19','S20','S21','S22','S23','S24','S25'],v:[168,169,154,170,154,168,146,170,145,172,171,172]}},
-  RUNS:[
-    {id:'18967988695',title:'Sortie longue endurance',date:'Jeu 18 juin',type:'#f59e0b',km:16.0,al:'5:31',re:156,fcm:151,fcx:171,cad:172,dp:52,cal:1249,hasStreams:true},
-    {id:'18955432704',title:'Allure marathon 1×6 km',date:'Mer 17 juin',type:'#0d9488',km:10.1,al:'5:14',re:169,fcm:165,fcx:181,cad:168,dp:35,cal:816,hasStreams:true},
-    {id:'18939731283',title:'Footing facile',date:'Mar 16 juin',type:'#16a34a',km:10.1,al:'5:56',re:58,fcm:140,fcx:167,cad:172,dp:40,cal:788,hasStreams:true},
-    {id:'18810734775',title:'Trail des Gypaètes (Circaète)',date:'Sam 6 juin',type:'#0d9488',km:29.8,al:'9:50',re:696,fcm:152,fcx:178,cad:146,dp:1662,cal:3191,hasStreams:true}
-  ],
-  STREAMS:{
-    '18967988695':{hr:[109,130,133,136,133,138,139,139,154,153,158,156,148,149,147,157,154,160,145,140,147,145,146,142,150,150,146,144,146,142,147,146,146,143,146,146,150,144,139,140,145,145,143,145,146,140,145,151,155,152,153,160,151,153,150,152,149,153,153,158,156,147,153,153,151,153,150,159,158,156,156,152,149,150,150,154,153,150,152,153,151,160,153,153,153,155,162,166,164,163,165,166,165,166,162,165,169,170,169,169],alt:[169,168,170,171,172,171,170,167,167,168,170,170,169,168,168,171,173,176,172,168,167,165,164,165,166,167,167,168,168,168,168,168,167,166,166,167,168,168,167,167,167,167,168,169,169,168,169,168,172,168,168,171,172,173,172,168,168,169,173,174,175,169,169,169,170,170,170,174,176,175,176,178,179,180,181,181,181,181,180,180,179,180,176,174,170,170,170,170,169,170,170,171,170,169,169,168,167,167,166,167],v:[0,2.76,2.16,3.28,2.98,2.62,3.32,3.84,3.38,3.42,3.24,3.14,2.92,1.46,2.96,3.34,2.72,2.76,2.9,2.98,2.98,2.94,3.02,2.88,3.16,2.96,3,3.12,2.92,2.86,2.88,3.28,2.94,3.4,2.88,2.9,3.12,2.94,3.4,2.82,2.46,2.98,3.26,3.96,3.18,3.06,2.4,3.38,2.98,3.26,3.3,2.7,2.68,3.02,3.06,1.96,2.44,2.88,2.88,3.14,2.9,3.06,2.78,3.1,3,2.84,2.86,2.88,2.68,3.02,2.92,2.94,2.9,2.96,2.94,2.94,2.88,2.94,2.92,3,2.92,0.73,2.94,3.1,3.54,3.4,3.22,3.36,3.18,3.3,3.6,3.4,3.08,3.48,3.24,3.46,3.38,3.34,3.94,2.86],km:[0,0.16,0.32,0.49,0.65,0.81,0.97,1.13,1.3,1.46,1.62,1.78,1.94,2.11,2.27,2.43,2.59,2.76,2.92,3.08,3.24,3.4,3.57,3.73,3.89,4.05,4.21,4.38,4.54,4.7,4.86,5.03,5.19,5.35,5.51,5.67,5.83,6,6.16,6.32,6.48,6.64,6.81,6.97,7.13,7.3,7.46,7.62,7.78,7.94,8.1,8.27,8.43,8.59,8.75,8.91,9.08,9.24,9.4,9.56,9.72,9.89,10.05,10.21,10.37,10.54,10.7,10.86,11.02,11.18,11.35,11.51,11.67,11.83,11.99,12.16,12.32,12.48,12.64,12.8,12.97,13.13,13.29,13.45,13.61,13.78,13.94,14.1,14.26,14.42,14.59,14.75,14.91,15.07,15.24,15.4,15.56,15.72,15.88,16.05]},
-    '18955432704':{hr:[95,133,143,144,154,143,146,142,146,146,150,158,154,153,153,153,158,157,155,156,153,157,155,157,159,157,162,163,167,163,169,165,170,173,168,164,163,166,166,169,167,170,170,167,168,166,167,168,169,172,166,169,167,171,171,167,171,166,167,170,170,167,169,172,140,159,171,173,170,171,171,174,173,173,172,171,171,174,174,173,172,176,176,176,175,176,170,166,169,171,173,171,173,174,175,173,176,180,176,174],alt:[169.6,169.2,168.4,168,169,169.8,170.4,170.6,170.8,167.8,167,166.4,166.4,166.8,167,167.2,167.6,167.6,167.8,168.2,168.8,170,170.8,172.2,171.4,169.8,169.8,168.8,169.2,169.2,171.6,171.8,174.2,178.2,175.8,174,170.4,169.4,169.4,169.2,167,166.8,167,167.2,168,169.2,170,170.2,170.8,170.4,170.8,171,170.8,171.6,171.6,171.6,171.6,170,169.4,169.2,168.2,168.6,168.6,168.6,168.6,170,168,169,169.6,169.8,169.8,170,170.8,170.8,171.6,171.4,171.2,171,170.8,171.8,174.2,174.6,175,174.2,174.2,173.8,173.8,173.8,175,176.2,176.2,176,176.4,177.4,176.8,178,179.8,178,174.2],v:[0,1.84,2.92,4.04,2.82,1.16,2.68,1.42,2.88,3.46,3.06,3.08,3.48,2.72,3.02,3.2,3.08,2.9,2.92,2.32,3.12,2.8,3.38,3.06,3.04,3.46,3.28,2.98,3.06,3.2,2.4,3.32,3.02,3.24,3.38,3.26,3.48,3.26,3.4,3.26,3.66,3.44,3.12,3.18,3.5,3.24,3.6,2.94,3.24,3.24,3.18,3.2,3.08,3.28,3.16,3.12,3.3,3.3,3.04,3.12,3.16,3.16,3.06,3.26,0.033,3.3,3.2,3.18,3.32,3,3.6,3.32,3.2,2.78,2.48,3.34,3.12,3.06,3.22,3.32,2.86,3.34,2.84,3.26,2.8,3.14,2.96,3.12,3.46,3.9,3.24,3.3,2.66,3.36,2.68,4.06,2.86,2.92,3.38,3.58],km:[0,0.103,0.204,0.307,0.409,0.513,0.616,0.718,0.819,0.920,1.025,1.125,1.230,1.331,1.435,1.535,1.640,1.741,1.844,1.947,2.048,2.149,2.254,2.355,2.458,2.559,2.662,2.766,2.868,2.971,3.072,3.174,3.276,3.381,3.481,3.585,3.686,3.788,3.893,3.995,4.096,4.200,4.300,4.405,4.506,4.607,4.711,4.812,4.917,5.018,5.121,5.223,5.327,5.427,5.531,5.634,5.736,5.836,5.939,6.043,6.146,6.246,6.350,6.451,6.554,6.656,6.759,6.861,6.966,7.065,7.171,7.273,7.373,7.477,7.579,7.680,7.784,7.885,7.988,8.093,8.192,8.296,8.397,8.499,8.601,8.704,8.808,8.908,9.012,9.114,9.216,9.321,9.422,9.524,9.627,9.731,9.831,9.933,10.037,10.139]},
-    '18939731283':{hr:[86,128,137,136,135,133,133,134,136,139,136,135,134,134,135,138,144,143,137,135,144,139,137,138,148,143,159,155,143,141,142,143,142,140,138,142,153,141,143,142,138,139,139,134,138,138,132,133,138,139,138,136,138,136,134,136,143,147,143,140,142,140,137,136,137,141,143,140,138,137,136,135,137,135,150,144,144,139,147,147,142,140,146,154,130,139,138,137,135,136,143,139,133,137,142,142,140,152,162,166],alt:[170.2,170.2,170.2,170.8,172,173.2,174,173.6,172.8,172,170.8,168.4,168.6,169,169.2,170.4,171.6,172.4,171.4,170.4,170.8,169,169.4,170,172,173.4,177,176.8,174.2,171.6,169.6,168.8,168.2,166,165,165.2,165.6,166.4,167,168.6,168.4,168.4,168.8,168.8,169,169,169,169.8,170.2,170.4,170.4,168.6,168.2,167.8,168.2,168.6,169.6,171.8,171.6,171,169,169.2,169.2,169.2,169,169,169.2,169.8,170.2,171,171.6,172,171.6,172.2,176,176.4,177,176.8,179.4,177.6,177.4,176.4,177.2,178.4,180.4,181,180,178.4,177.8,176.4,176.6,177.2,173,173.2,172.6,171.8,171.6,171.4,172.8,176.2],v:[0,2.82,3.06,3.5,3.12,2.86,2.62,2.64,2.6,2.7,2.8,3,2.92,2.9,3.24,3.68,2.62,3,2.54,2.88,2.36,6.04,3.64,2.54,3.02,2.94,3.2,3.24,2.62,3.28,2.92,2.88,3.02,2.88,2.8,2.9,2.92,1.58,3,2.76,2.68,2.82,2.88,2.74,2.7,2.64,2.44,2.84,2.72,3.48,2.74,2.74,2.98,2.68,2.76,3.08,2.86,2.62,3.32,3.26,3.2,3.34,2.76,3.06,2.78,2.52,2.6,2.8,3.08,2.6,2.54,2.74,2.5,2.76,3,2.92,2.78,2.54,2.48,1.98,3.44,2.88,3.02,3.08,3.3,2.68,2.94,3.34,2.56,2.72,2.5,2.6,1.44,2.64,3.12,2.18,3.28,3.1,3.78,3.22],km:[0.007,0.110,0.212,0.314,0.415,0.518,0.621,0.722,0.825,0.927,1.029,1.134,1.235,1.338,1.439,1.543,1.644,1.747,1.848,1.952,2.054,2.156,2.260,2.361,2.463,2.567,2.669,2.770,2.873,2.976,3.078,3.181,3.281,3.385,3.487,3.591,3.693,3.795,3.898,3.999,4.102,4.203,4.306,4.409,4.512,4.615,4.716,4.818,4.922,5.024,5.125,5.227,5.332,5.432,5.534,5.639,5.739,5.841,5.946,6.046,6.149,6.252,6.355,6.456,6.560,6.663,6.766,6.969,7.069,7.174,7.277,7.379,7.479,7.583,7.687,7.787,7.891,7.991,8.095,8.199,8.299,8.402,8.504,8.608,8.708,8.811,8.913,9.017,9.119,9.221,9.323,9.426,9.528,9.632,9.732,9.834,9.938,10.040,10.143]},
-    '18810734775':{hr:[111,168,177,173,180,177,176,168,164,173,173,174,173,169,172,172,172,159,161,160,157,156,168,172,174,164,157,165,170,157,163,169,158,176,166,175,173,167,168,165,165,163,168,169,162,155,155,168,156,164,163,168,171,169,160,164,174,167,160,160,167,154,161,155,152,162,154,158,151,161,158,153,148,150,153,157,134,144,151,158,146,154,162,154,154,129,155,142,148,149,147,157,151,144,135,143,149,147,158,168],alt:[1281,1304,1323,1339,1363,1404,1457,1484,1516,1541,1584,1642,1700,1766,1818,1879,1952,1907,1921,1846,1789,1743,1771,1810,1860,1925,1917,1872,1870,1806,1741,1769,1756,1740,1731,1724,1712,1684,1656,1621,1597,1575,1573,1568,1550,1493,1439,1390,1339,1313,1252,1176,1116,1069,1017,967,964,972,994,1012,1048,1079,1121,1156,1168,1231,1286,1377,1444,1488,1535,1554,1525,1465,1463,1475,1449,1422,1444,1442,1405,1328,1254,1186,1135,1118,1063,1027,967,951,891,840,792,740,700,639,576,536,496,492],v:[0,3.24,2.98,2.92,2.78,1.34,1.52,2.68,1.3,1.78,1.08,1.46,1.06,1.5,1.12,0.62,0.8,1.62,2.52,1.18,2.96,1.78,2.62,1.5,1.24,1.2,0.54,3.04,2.76,1.58,3.12,0.88,2.88,2.76,3.84,3.42,4.06,3.36,4.14,3.54,3.98,3.54,2.32,2.48,2.98,2.82,3.02,2.8,3.62,2.38,3.48,1.78,3.46,2.98,3.8,4,3.72,1.84,1.74,1.8,1.36,1.6,1.44,1.48,1.68,0.36,0.98,0.58,1.38,1.12,1.6,1.7,1.7,2.76,1.98,1.18,3.08,3.04,2.86,1.06,3.16,2.3,2,3.06,3.36,1.64,3.5,2.9,2.56,2.9,2.52,3.96,1.78,3.26,3.5,2.04,3.02,1.64,3.28,0.36],km:[0.004,0.303,0.606,0.909,1.207,1.510,1.810,2.113,2.414,2.715,3.015,3.316,3.618,3.919,4.220,4.522,4.823,5.123,5.426,5.727,6.028,6.329,6.629,6.932,7.232,7.533,7.835,8.135,8.439,8.737,9.041,9.341,9.642,9.943,10.245,10.544,10.848,11.148,11.450,11.751,12.052,12.352,12.653,12.956,13.255,13.556,13.858,14.160,14.462,14.762,15.063,15.365,15.664,15.965,16.266,16.567,16.870,17.171,17.472,17.773,18.074,18.376,18.678,18.978,19.279,19.581,19.882,20.183,20.484,20.786,21.087,21.389,21.690,21.992,22.292,22.592,22.893,23.195,23.496,23.798,24.100,24.400,24.700,25.003,25.302,25.605,25.907,26.208,26.510,26.810,27.109,27.411,27.713,28.014,28.317,28.616,28.916,29.218,29.522,29.821]}
-  }
+  RUNS:[],
+  STREAMS:{}
 };
 let _ckWin=8;
 /* PMC — Performance Management Chart (Sprint C) */
@@ -3607,7 +3619,7 @@ function _ckOpenRun(i){
   const el=document.getElementById('ck-modal');if(!el)return;
   el.querySelector('#ck-m-title').textContent=r.title;
   el.querySelector('#ck-m-sub').textContent=r.date+' · '+r.km+' km · '+r.al+'/km';
-  el.querySelector('#ck-m-metrics').innerHTML=[['Distance',r.km+' km'],['Allure',r.al+'/km'],['Effort',r.re],['FC moy',r.fcm+' bpm'],['FC max',r.fcx+' bpm'],['Cadence',r.cad+' spm'],['D+',r.dp+' m'],['Calories',r.cal]].map(m=>`<div style="background:var(--gris-fond);border-radius:9px;padding:8px;text-align:center"><div style="font-size:14px;font-weight:700;color:var(--texte)">${m[1]}</div><div style="font-size:8.5px;text-transform:uppercase;letter-spacing:.04em;color:var(--texte-deux);margin-top:3px">${m[0]}</div></div>`).join('');
+  el.querySelector('#ck-m-metrics').innerHTML=[['Distance',r.km+' km'],['Allure',r.al+'/km'],['Effort',r.re],['FC moy',r.fcm+' BPM'],['FC max',r.fcx+' BPM'],['Cadence',r.cad?r.cad+' PPM':'—'],['D+',r.dp+' m'],['Calories',r.cal||'—']].map(m=>`<div style="background:var(--gris-fond);border-radius:9px;padding:8px;text-align:center"><div style="font-size:14px;font-weight:700;color:var(--texte)">${m[1]}</div><div style="font-size:8.5px;text-transform:uppercase;letter-spacing:.04em;color:var(--texte-deux);margin-top:3px">${m[0]}</div></div>`).join('');
   el.style.display='flex';
   if(r.hasStreams){
     const H=140,n=st.km.length,xs=st.km.map(d=>10+d/st.km[n-1]*(280));
@@ -3647,7 +3659,7 @@ function _ckOpenRun(i){
     wrap.onmouseleave=()=>{wrap.onmousemove=null;endM();};
   } else {
     const svg=el.querySelector('#ck-m-svg');svg.setAttribute('viewBox','0 0 300 140');
-    svg.innerHTML='<text x="150" y="70" text-anchor="middle" fill="#94a3b8" font-size="12">Streams disponibles en prod via Strava</text>';
+    svg.innerHTML='<text x="150" y="70" text-anchor="middle" fill="#94a3b8" font-size="12">Détail seconde par seconde non enregistré pour cette sortie</text>';
   }
 }
 function _ckRenderAll(win){
@@ -3660,6 +3672,7 @@ function _ckRenderAll(win){
   const reLbl=document.getElementById('ck-re-lbl');if(reLbl){reLbl.textContent='Effort · '+W+' sem.';}
   document.getElementById('ck-re-val').textContent=totalRE;
   _pmcRender(W);
+  try{var _f=computeFormeScore();var _fe=document.getElementById('ck-forme-val');if(_fe){_fe.textContent=_f.score;var _fs=document.getElementById('ck-forme-sig');if(_fs)_fs.textContent=_f.signal||'';}}catch(e){}
   _ckBar('ckVol','ckVolW','ckVolT','ckVolX',D.VOL[W],{ref:true,col:'#0d9488',unit:' km',h:90});
   document.getElementById('ck-vol-sub').textContent=totalKm.toFixed(0)+' km · '+W+' sem.';
   _ckBar('ckRE','ckREW','ckRET','ckREX',D.RE[W],{col:'#0d9488',h:80});
@@ -3673,8 +3686,8 @@ function _ckRenderAll(win){
   var _av2=document.getElementById('ck-acwr-val2');if(_av2){_av2.textContent=al.toFixed(2);_av2.style.color=_acol;}
   _ckBar('ckDP','ckDPW','ckDPT','ckDPX',D.DPLUS[W],{col:'#94a3b8',unit:' m',h:75});
   _ckLine('ckZ2','ckZ2W','ckZ2T','ckZ2X',D.Z2[W].w,[{v:D.Z2[W].v,color:'#0d9488',lbl:'/km'}],_ckSmin,{h:85});
-  document.getElementById('ck-z2-val').textContent=_ckSmin(D.Z2[W].v[D.Z2[W].v.length-1]);
-  const z2d=D.Z2[W].v[0]-D.Z2[W].v[D.Z2[W].v.length-1];document.getElementById('ck-z2-delta').textContent=(z2d>0?'↓ −'+_ckSmin(z2d)+'/km · le moteur grossit 💪':'↑ à surveiller');document.getElementById('ck-z2-delta').style.color=z2d>0?'#16a34a':'#ef4444';
+  const z2v=D.Z2[W].v.filter(x=>x!=null);document.getElementById('ck-z2-val').textContent=z2v.length?_ckSmin(z2v[z2v.length-1]):'—';
+  const z2d=z2v.length>1?z2v[0]-z2v[z2v.length-1]:0;const z2e=document.getElementById('ck-z2-delta');z2e.textContent=z2v.length<2?'pas assez de footings Z2 sur la période':(z2d>2?'↓ −'+_ckSmin(z2d)+'/km sur la période':z2d<-2?'↑ +'+_ckSmin(-z2d)+'/km · à surveiller (fatigue ?)':'→ stable');z2e.style.color=z2d>2?'#16a34a':z2d<-2?'#ef4444':'#64748b';
   const dcLast=D.DC[W].v.filter(x=>x!=null).pop();_ckLine('ckDC','ckDCW','ckDCT','ckDCX',D.DC[W].w,[{v:D.DC[W].v,color:'#16a34a',lbl:'%'}],v=>v.toFixed(1)+'%',{h:75,zones:[[0,5,'#16a34a'],[5,8,'#f59e0b'],[8,15,'#ef4444']]});
   document.getElementById('ck-dc-val').textContent=dcLast?dcLast.toFixed(1)+'%':'—';document.getElementById('ck-dc-val').style.color=dcLast<5?'#16a34a':dcLast<8?'#f59e0b':'#ef4444';
   _ckLine('ckPACE','ckPACEW','ckPACET','ckPACEX',D.PACE[W].w,[{v:D.PACE[W].ef,color:'#16a34a',lbl:'EF'},{v:D.PACE[W].am,color:'#0d9488',lbl:'AS'},{v:D.PACE[W].se,color:'#f59e0b',lbl:'Seuil'}],_ckSmin,{h:95,fill:false});
@@ -3682,9 +3695,9 @@ function _ckRenderAll(win){
   const z=D.FCZ[W],H=100,n=z.length,gap=300/n,bw=gap*0.5,mxz=Math.max(...z.map(x=>x[2]));
   let fcs='';z.forEach((zone,i)=>{const x=i*gap+gap*0.25,h=zone[2]/mxz*(H-22);fcs+=`<rect class="ck-fcb" data-i="${i}" x="${x}" y="${H-h-10}" width="${bw}" height="${h}" rx="3" fill="${zone[1]}"/><text x="${x+bw/2}" y="${H-h-14}" text-anchor="middle" font-size="11" font-weight="700" fill="${zone[1]}">${zone[2]}%</text><text x="${x+bw/2}" y="${H-1}" text-anchor="middle" font-size="9" fill="#94a3b8">${zone[0]}</text>`;});
   const fcSvg=document.getElementById('ckFC');fcSvg.setAttribute('viewBox',`0 0 300 ${H}`);fcSvg.innerHTML=fcs;
-  document.getElementById('ck-fc-sub').textContent=z[1][2]+'% en Z2 · '+W+' sem.';
-  fcSvg.querySelectorAll('.ck-fcb').forEach(b=>b.addEventListener('click',()=>{const zone=z[+b.dataset.i];const ranges={'Z1':'<130 bpm','Z2':'130-144','Z3':'145-165','Z4+':'>165 bpm'};document.getElementById('ck-fc-info').innerHTML=`<strong style="color:${zone[1]}">${zone[0]}</strong> · ${ranges[zone[0]]} · ${zone[2]}%`;}));
-  _ckLine('ckCAD','ckCADW','ckCADT','ckCADX',D.CAD[W].w,[{v:D.CAD[W].v,color:'#06b6d4',lbl:'spm'}],v=>v.toFixed(0)+' spm',{h:70});
+  document.getElementById('ck-fc-sub').textContent=z[1][2]+'% en Z2 · '+W+' sem. (FC moyenne de chaque sortie, pondérée par la durée)';
+  fcSvg.querySelectorAll('.ck-fcb').forEach(b=>b.addEventListener('click',()=>{const zone=z[+b.dataset.i];const ranges={'Z1':'<140 BPM','Z2':'140-160','Z3':'160-174','Z4':'174-184','Z5':'184-200'};document.getElementById('ck-fc-info').innerHTML=`<strong style="color:${zone[1]}">${zone[0]}</strong> · ${ranges[zone[0]]} · ${zone[2]}%`;}));
+  _ckLine('ckCAD','ckCADW','ckCADT','ckCADX',D.CAD[W].w,[{v:D.CAD[W].v,color:'#06b6d4',lbl:'PPM'}],v=>v.toFixed(0)+' PPM',{h:70});
   const cadLast=D.CAD[W].v.filter(x=>x!=null).pop();document.getElementById('ck-cad-val').textContent=cadLast?cadLast.toFixed(0):'—';
   // Run list
   document.getElementById('ck-runs').innerHTML=D.RUNS.map((r,i)=>`<div onclick="_ckOpenRun(${i})" style="background:var(--gris-fond);border-radius:10px;padding:10px 12px;display:flex;align-items:center;gap:10px;cursor:pointer;margin-bottom:6px"><div style="width:7px;height:7px;border-radius:50%;background:${r.type};flex:0 0 7px"></div><div style="flex:1;min-width:0"><div style="font-size:13px;font-weight:600;color:var(--texte)">${r.title}${r.hasStreams?' <span style="font-size:9px;color:#0d9488">⊙ live</span>':''}</div><div style="font-size:10px;color:var(--texte-deux);margin-top:1px">${r.date} · RE ${r.re} · FC ${r.fcm}/${r.fcx}</div></div><div style="text-align:right"><div style="font-size:14px;font-weight:700;color:var(--texte)">${r.km}</div><div style="font-size:9px;color:var(--texte-deux)">${r.al}/km</div></div></div>`).join('');
@@ -3692,7 +3705,7 @@ function _ckRenderAll(win){
 function renderCockpit(){
   const el=document.getElementById('cockpit-contenu');
   if(el.innerHTML.trim()){_ckRenderAll(_ckWin);return;}
-  const FC_RANGE={'Z1':'<130 bpm','Z2':'130-144','Z3':'145-165','Z4+':'>165 bpm'};
+  const FC_RANGE={'Z1':'<140 BPM','Z2':'140-160','Z3':'160-174','Z4':'174-184','Z5':'184-200'};
   function card(id,title,sub,valId,valSuffix,chartH,extra,helpKey){
     const hb=helpKey?`<button class="ck-help" onclick="event.stopPropagation();openCkHelp('${helpKey}')">?</button>`:'';
     return`<div class="ck-card"><div class="ck-ch"><div><div class="ck-ct">${title}${hb}</div><div class="ck-cs" id="${id}-sub">${sub}</div></div>${valId?`<div style="text-align:right"><div class="ck-big" id="${valId}">—</div>${valSuffix?'<div class="ck-cs">'+valSuffix+'</div>':''}</div>`:''}</div><div class="ck-cw" id="${id}W"><svg id="${id}" height="${chartH}" style="display:block;width:100%"></svg><div class="ck-tt" id="${id}T"></div></div><div class="ck-xl" id="${id}X"></div>${extra||''}</div>`;
@@ -3711,7 +3724,7 @@ function renderCockpit(){
   <div class="ck-kpi"><div class="ck-kv" id="ck-km-val">—<span class="ck-ku">km</span></div><div class="ck-kl" id="ck-km-lbl">fenêtre</div><div class="ck-kd up">cumulé</div></div>
   <div class="ck-kpi"><div class="ck-kv" id="ck-re-val">—</div><div class="ck-kl" id="ck-re-lbl">Effort</div><div class="ck-kd up">cumulé</div></div>
   <div class="ck-kpi"><div class="ck-kv" id="ck-acwr-val">—</div><div class="ck-kl">ACWR</div><div class="ck-kd">—</div></div>
-  <div class="ck-kpi"><div class="ck-kv">51.6</div><div class="ck-kl">VO₂max</div><div class="ck-kd up">↑ +0.4</div></div>
+  <div class="ck-kpi"><div class="ck-kv" id="ck-forme-val">—</div><div class="ck-kl">Forme du jour</div><div class="ck-kd" id="ck-forme-sig">—</div></div>
 </div>
 <div class="ck-sec">📊 Volume &amp; charge</div>
 <div class="ck-sec">📈 Performance Management Chart</div>
@@ -3722,13 +3735,13 @@ ${card('ckRE','⚡ Relative Effort / sem.','charge Strava réelle',null,null,80,
 <div class="ck-card"><div class="ck-ch"><div><div class="ck-ct">🩹 ACWR — risque blessure<button class="ck-help" onclick="event.stopPropagation();openCkHelp('acwr')">?</button></div><div class="ck-cs">ratio charge aiguë / chronique</div></div><div style="font-size:26px;font-weight:700;line-height:1" id="ck-acwr-val2">—</div></div><div class="ck-cw" id="ckACWRW"><svg id="ckACWR" height="65" style="display:block;width:100%"></svg><div class="ck-tt" id="ckACWRT"></div></div><div class="ck-xl" id="ckACWRX"></div></div>
 ${card('ckDP','⛰ Dénivelé D+','',null,'m',75,'','dp')}
 <div class="ck-sec">🔋 Moteur aérobie</div>
-<div class="ck-card"><div class="ck-ch"><div><div class="ck-ct">Z2 pace — allure EF à FC&lt;144<button class="ck-help" onclick="event.stopPropagation();openCkHelp('z2')">?</button></div><div class="ck-cs">indicateur n°1 du développement</div></div><div style="text-align:right"><div style="font-size:22px;font-weight:700;color:#0d9488" id="ck-z2-val">5:54</div><div class="ck-cs">/km</div></div></div><div style="font-size:10px;font-weight:600;margin:3px 0 6px" id="ck-z2-delta"></div><div class="ck-cw" id="ckZ2W"><svg id="ckZ2" height="85" style="display:block;width:100%"></svg><div class="ck-tt" id="ckZ2T"></div></div><div class="ck-xl" id="ckZ2X"></div></div>
+<div class="ck-card"><div class="ck-ch"><div><div class="ck-ct">Z2 pace — allure EF à FC 140-160<button class="ck-help" onclick="event.stopPropagation();openCkHelp('z2')">?</button></div><div class="ck-cs">indicateur n°1 du développement</div></div><div style="text-align:right"><div style="font-size:22px;font-weight:700;color:#0d9488" id="ck-z2-val">—</div><div class="ck-cs">/km</div></div></div><div style="font-size:10px;font-weight:600;margin:3px 0 6px" id="ck-z2-delta"></div><div class="ck-cw" id="ckZ2W"><svg id="ckZ2" height="85" style="display:block;width:100%"></svg><div class="ck-tt" id="ckZ2T"></div></div><div class="ck-xl" id="ckZ2X"></div></div>
 <div class="ck-card"><div class="ck-ch"><div><div class="ck-ct">💓 Découplage cardiaque<button class="ck-help" onclick="event.stopPropagation();openCkHelp('dc')">?</button></div><div class="ck-cs">dérive FC sortie longue · &lt;5% idéal</div></div><div style="font-size:22px;font-weight:700" id="ck-dc-val">—</div></div><div class="ck-cw" id="ckDCW"><svg id="ckDC" height="75" style="display:block;width:100%"></svg><div class="ck-tt" id="ckDCT"></div></div><div class="ck-xl" id="ckDCX"></div></div>
 <div class="ck-sec">📈 Allure &amp; vitesse</div>
 <div class="ck-card"><div class="ck-ch"><div><div class="ck-ct">Progression allure par type<button class="ck-help" onclick="event.stopPropagation();openCkHelp('pace')">?</button></div><div class="ck-cs">EF · semi · seuil</div></div></div><div class="ck-cw" id="ckPACEW"><svg id="ckPACE" height="95" style="display:block;width:100%"></svg><div class="ck-tt" id="ckPACET"></div></div><div class="ck-xl" id="ckPACEX"></div><div style="display:flex;gap:12px;font-size:10px;color:var(--texte-deux);margin-top:7px"><span><span style="color:#16a34a">●</span> EF</span><span><span style="color:#0d9488">●</span> AS</span><span><span style="color:#f59e0b">●</span> Seuil</span></div></div>
 <div class="ck-sec">❤️ Cardiaque &amp; cadence</div>
 <div class="ck-card"><div class="ck-ch"><div><div class="ck-ct">Zones FC<button class="ck-help" onclick="event.stopPropagation();openCkHelp('fc')">?</button></div><div class="ck-cs" id="ck-fc-sub"></div></div></div><div class="ck-cw" id="ckFCW"><svg id="ckFC" height="100" style="display:block;width:100%"></svg><div class="ck-tt" id="ckFCT"></div></div><div style="font-size:10px;color:var(--texte-deux);text-align:center;margin-top:6px;min-height:14px" id="ck-fc-info">touche une zone</div></div>
-<div class="ck-card"><div class="ck-ch"><div><div class="ck-ct">🦶 Cadence<button class="ck-help" onclick="event.stopPropagation();openCkHelp('cad')">?</button></div><div class="ck-cs">route ~172 spm · trail ~146 spm</div></div><div><div style="font-size:22px;font-weight:700;color:var(--texte)" id="ck-cad-val">172</div><div class="ck-cs">spm</div></div></div><div class="ck-cw" id="ckCADW"><svg id="ckCAD" height="70" style="display:block;width:100%"></svg><div class="ck-tt" id="ckCADT"></div></div><div class="ck-xl" id="ckCADX"></div></div>
+<div class="ck-card"><div class="ck-ch"><div><div class="ck-ct">🦶 Cadence<button class="ck-help" onclick="event.stopPropagation();openCkHelp('cad')">?</button></div><div class="ck-cs">pas par minute (PPM) · sorties de course et trail</div></div><div><div style="font-size:22px;font-weight:700;color:var(--texte)" id="ck-cad-val">—</div><div class="ck-cs">PPM</div></div></div><div class="ck-cw" id="ckCADW"><svg id="ckCAD" height="70" style="display:block;width:100%"></svg><div class="ck-tt" id="ckCADT"></div></div><div class="ck-xl" id="ckCADX"></div></div>
 <div class="ck-sec">🔍 Analyse par sortie</div>
 <div id="ck-runs"></div>
 </div>
