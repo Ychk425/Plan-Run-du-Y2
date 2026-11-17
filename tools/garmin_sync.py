@@ -206,9 +206,28 @@ def main():
         api.send_scheduled_workouts_to_devices()
     except Exception:  # noqa: BLE001
         pass
+    cal = []
+    try:
+        lim = (ref + dt.timedelta(days=HORIZON)).isoformat()
+        items = api.get_scheduled_workouts_by_period(ref.isoformat(), lim) or []
+        if isinstance(items, dict):
+            items = items.get("workoutScheduleList") or items.get("scheduledWorkouts") or list(items.values())
+        for it in items:
+            if not isinstance(it, dict):
+                continue
+            nm = it.get("title") or it.get("workoutName") or (it.get("workout") or {}).get("workoutName") or ""
+            dd = str(it.get("date") or it.get("calendarDate") or it.get("scheduleDate") or "")[:10]
+            if str(nm).startswith("Y2 "):
+                cal.append(f"{dd} · {nm}")
+        if not cal and items:
+            cal.append("(format inattendu : " + ", ".join(sorted(items[0].keys()))[:300] + ")")
+    except Exception as e:  # noqa: BLE001
+        cal.append(f"(lecture du calendrier impossible : {e})")
     lines = ["## Synchro Garmin", f"- Séances à jour : {kept}", f"- Ajoutées : {len(created)}"]
     lines += [f"  - {c}" for c in created]
     lines += [f"- Retirées (modifiées ou supprimées du plan) : {len(removed)}"] + [f"  - {r}" for r in removed]
+    lines += [f"- Vérification dans le calendrier Garmin ({HORIZON} jours) : {len([c for c in cal if not c.startswith('(')])} séance(s) Y2 programmée(s)"]
+    lines += [f"  - {c}" for c in sorted(cal)]
     if errors:
         lines += ["- **Erreurs :**"] + [f"  - {e}" for e in errors]
     summary(lines)
