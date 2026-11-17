@@ -228,6 +228,9 @@ def main():
     lines += [f"- Retirées (modifiées ou supprimées du plan) : {len(removed)}"] + [f"  - {r}" for r in removed]
     lines += [f"- Vérification dans le calendrier Garmin ({HORIZON} jours) : {len([c for c in cal if not c.startswith('(')])} séance(s) Y2 programmée(s)"]
     lines += [f"  - {c}" for c in sorted(cal)]
+    from collections import Counter
+    dup = [n for n, c in Counter(str(w.get("workoutName")) for w in managed).items() if c > 1]
+    lines += [f"- Contrôle des doublons : {len(managed)} séance(s) « Y2 » dans la bibliothèque, doublons : {len(dup)}"] + [f"  - {n}" for n in dup]
     if errors:
         lines += ["- **Erreurs :**"] + [f"  - {e}" for e in errors]
     summary(lines)
