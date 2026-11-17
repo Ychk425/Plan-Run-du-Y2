@@ -1,0 +1,56 @@
+name: Synchro Garmin
+
+on:
+  push:
+    branches: [main]
+    paths: [index.html, tools/garmin_sync.py]
+  schedule:
+    - cron: "41 3 * * *"   # chaque nuit (vers 4h41, heure de Paris)
+  workflow_dispatch:
+
+concurrency:
+  group: garmin-sync
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+env:
+  HAS_SECRETS: ${{ secrets.GARMIN_EMAIL != '' }}
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Empreinte des séances à venir
+        id: fp
+        run: echo "fp=$(python tools/garmin_sync.py --fingerprint)" >> "$GITHUB_OUTPUT"
+      - name: Déjà synchronisé ?
+        id: cache
+        uses: actions/cache/restore@v4
+        with:
+          path: .y2-sync
+          key: y2-sync-${{ steps.fp.outputs.fp }}
+          lookup-only: true
+      - name: Installer la bibliothèque Garmin
+        if: steps.cache.outputs.cache-hit != 'true' || github.event_name == 'workflow_dispatch'
+        run: pip install "garminconnect==0.3.20"
+      - name: Synchroniser vers Garmin Connect
+        if: steps.cache.outputs.cache-hit != 'true' || github.event_name == 'workflow_dispatch'
+        env:
+          GARMIN_EMAIL: ${{ secrets.GARMIN_EMAIL }}
+          GARMIN_PASSWORD: ${{ secrets.GARMIN_PASSWORD }}
+        run: |
+          python tools/garmin_sync.py
+          mkdir -p .y2-sync && echo "${{ steps.fp.outputs.fp }}" > .y2-sync/fp
+      - name: Mémoriser l'empreinte
+        if: steps.cache.outputs.cache-hit != 'true' && env.HAS_SECRETS == 'true'
+        uses: actions/cache/save@v4
+        with:
+          path: .y2-sync
+          key: y2-sync-${{ steps.fp.outputs.fp }}
